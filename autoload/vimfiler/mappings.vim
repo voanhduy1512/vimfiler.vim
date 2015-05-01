@@ -33,11 +33,6 @@ endfunction
 
 function! vimfiler#mappings#define_default_mappings(context) "{{{
   " Plugin keymappings "{{{
-  nnoremap <buffer><expr> <Plug>(vimfiler_loop_cursor_down)
-        \ (line('.') == line('$'))?
-        \  (vimfiler#get_file_offset()+1).'Gzb' : 'j'
-  nnoremap <buffer><silent><expr> <Plug>(vimfiler_loop_cursor_up)
-        \ (line('.') == 1)? ":call \<SID>cursor_bottom()\<CR>" : 'k'
   nnoremap <buffer><silent> <Plug>(vimfiler_redraw_screen)
         \ :<C-u>call vimfiler#force_redraw_screen(1)<CR>
   nnoremap <buffer><silent> <Plug>(vimfiler_toggle_mark_current_line)
@@ -200,10 +195,6 @@ function! vimfiler#mappings#define_default_mappings(context) "{{{
     execute s:nowait_nmap() '<Tab>'
           \ '<Plug>(vimfiler_switch_to_another_vimfiler)'
   endif
-  execute s:nowait_nmap() 'j'
-        \ '<Plug>(vimfiler_loop_cursor_down)'
-  execute s:nowait_nmap() 'k'
-        \ '<Plug>(vimfiler_loop_cursor_up)'
 
   " Toggle mark.
   execute s:nowait_nmap() '<C-l>'
