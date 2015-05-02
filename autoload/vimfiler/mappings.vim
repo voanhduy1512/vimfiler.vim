@@ -33,8 +33,6 @@ endfunction
 
 function! vimfiler#mappings#define_default_mappings(context) "{{{
   " Plugin keymappings "{{{
-  nnoremap <buffer><silent> <Plug>(vimfiler_redraw_screen)
-        \ :<C-u>call vimfiler#force_redraw_screen(1)<CR>
   nnoremap <buffer><silent> <Plug>(vimfiler_toggle_mark_current_line)
         \ :<C-u>call <SID>toggle_mark_current_line('j')<CR>
   nnoremap <buffer><silent> <Plug>(vimfiler_toggle_mark_current_line_up)
@@ -197,8 +195,6 @@ function! vimfiler#mappings#define_default_mappings(context) "{{{
   endif
 
   " Toggle mark.
-  execute s:nowait_nmap() '<C-l>'
-        \ '<Plug>(vimfiler_redraw_screen)'
   execute s:nowait_nmap() '<Space>'
         \ '<Plug>(vimfiler_toggle_mark_current_line)'
   execute s:nowait_nmap() '<S-LeftMouse>'
